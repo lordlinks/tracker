@@ -1,6 +1,8 @@
 <html>
 	<?php include "phpcomponents/header.php";?>
 	<?php include "phpcomponents/name_drop.php";?>
+	<?php include "phpcomponents/runningTotal.php"?>
+	<script src="js/js.js"></script>
 	<body>
 	<div class="container">
 		<div class="row">
@@ -48,7 +50,7 @@
 						<p>
 							How much was the purchase? (DDDD.cc)
 						</p>
-						<input type="text" class="col-md-12 form-control" placeholder="$0.00"
+						<input type="text" class="col-md-12 form-control" placeholder="0.00"
 						       name="Amount" id="Amount">
 						<br>
 						<div class="alert alert-danger" role="alert" id="dollarydoos">
@@ -66,10 +68,10 @@
 							<br>
 							<span class="input-group-btn">
 								<button type="button" class="btn btn-default"
-								        onclick="table_calculate()">Add Receipt</button>
+								        onclick="add_transaction()">Add Receipt</button>
 							</span>
 						</div>
-						<div class="alert alert-danger" role="alert" id="Timeywhimey">
+						<div class="alert alert-danger" role="alert" id="timeywhimey">
 							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 							<span class="sr-only">Error:</span>
 							You are not Dr. Who, Use real linear time.
@@ -83,8 +85,8 @@
 						<h1>The table of knowing</h1>
 					</div>
 					<div class="panel-body">
-						<table id="knowing">
-
+						<table class="table table-striped" id="knowing">
+							<?php tableOfKnowing() ?>
 						</table>
 					</div>
 				</div>
@@ -97,7 +99,6 @@
 						</div>
 					</div>
 					<div class="panel-body">
-
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-function table_calculate() {
+function add_transaction() {
     var ajaxRequest;
     var name = document.getElementById('name').value;
     var shop = document.getElementById('shop').value;
@@ -25,7 +25,7 @@ function table_calculate() {
             }
         };
         var data = "?name=" + name + "&shop=" + shop + "&price=" + price + "&date="+ date;
-        ajaxRequest.open("POST", "phpcomponents/runningTotal.php" + data, true);
+        ajaxRequest.open("POST", "phpcomponents/NewTransaction.php" + data, true);
         ajaxRequest.send(null);
     }
 }
