@@ -6,10 +6,15 @@
 	<body>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-12">
+				<h1>Receipt Tracker v0.0.1</h1>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-4">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h1>Hi my name is?</h1>
+						<h2>Hi my name is?</h2>
 					</div>
 					<div class="panel-body">
 						<p>
@@ -31,7 +36,7 @@
 			<div class="col-md-4">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h1>I want to add a transaction?</h1>
+						<h2>I want to add a transaction?</h2>
 					</div>
 					<div class="panel-body">
 						<p>
@@ -82,7 +87,7 @@
 			<div class="col-md-4">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h1>The table of knowing</h1>
+						<h2>The table of knowing</h2>
 					</div>
 					<div class="panel-body">
 						<table class="table table-striped" id="knowing">
