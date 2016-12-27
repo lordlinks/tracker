@@ -29,3 +29,45 @@ function add_transaction() {
         ajaxRequest.send(null);
     }
 }
+
+function bill_payer() {
+    var ajaxRequest;
+    var name = document.getElementById('name').value;
+    if (name==0){
+        document.getElementById('shady').style.display = 'block';
+    }
+    else{
+        document.getElementById('shady').style.display = 'none';
+        ajaxRequest = new XMLHttpRequest();
+        ajaxRequest.onreadystatechange = function () {
+            if(ajaxRequest.readyState == 4){
+                var ajaxDisplay = document.getElementById('pay');
+                ajaxDisplay.innerHTML = ajaxRequest.responseText;
+            }
+        };
+        var data = "?name=" + name;
+        ajaxRequest.open("POST", "phpcomponents/payment.php" + data, true);
+        ajaxRequest.send(null);
+    }
+}
+
+function pay_bill() {
+    var ajaxRequest;
+    var name = document.getElementById('name').value;
+    if (name==0){
+        document.getElementById('shady').style.display = 'block';
+    }
+    else{
+        document.getElementById('shady').style.display = 'none';
+        ajaxRequest = new XMLHttpRequest();
+        ajaxRequest.onreadystatechange = function () {
+            if(ajaxRequest.readyState == 4){
+                var ajaxDisplay = document.getElementById('pay');
+                ajaxDisplay.innerHTML = ajaxRequest.responseText;
+            }
+        };
+        var data = "?name=" + name;
+        ajaxRequest.open("POST", "phpcomponents/pay_and_update.php" + data, true);
+        ajaxRequest.send(null);
+    }
+}
