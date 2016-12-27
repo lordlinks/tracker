@@ -1,8 +1,7 @@
 <html>
 	<?php include "phpcomponents/header.php";?>
 	<?php include "phpcomponents/name_drop.php";?>
-	<?php include "phpcomponents/runningTotal.php"?>
-	<?php include "phpcomponents/pay_and_update.php"?>
+	<?php include "phpcomponents/runningTotal.php";?>
 	<script src="js/js.js"></script>
 	<body>
 		<div class="container">
