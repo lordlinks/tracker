@@ -53,38 +53,29 @@ $insertPaid->execute();
 $running = $conn -> prepare("SELECT * FROM cur_run");
 $running ->execute();
 $resultant =$running ->fetch();
-// get the view
-$StoD = 0;
-$StoG = 0;
-$GtoD = 0;
-$GtoS = 0;
-$DtoS = 0;
-$DtoG = 0;
+
 //we will use this array to get the column names and throw the values to the variables above.
 $headers = [
-	"gareth_to_sarah" => $GtoS,
-	"gareth_to_doug" => $GtoD,
-	"sarah_to_gareth" => $StoG,
-	"sarah_to_doug" => $StoD,
-	"doug_to_gareth" => $DtoG,
-	"doug_to_sarah" => $DtoS
+	'GtoS' => $resultant['gareth_to_sarah'],
+	'GtoD' => $resultant['gareth_to_doug'],
+	'StoG' => $resultant['sarah_to_gareth'],
+	'StoD' => $resultant['sarah_to_doug'],
+	'DtoG' => $resultant['doug_to_gareth'],
+	'DtoS' => $resultant['doug_to_sarah']
 ];
-foreach ($resultant as $cur_per => $cur_val){
-	//cycle though the columns and put the values into our variables.
-	$headers[$cur_per] = $cur_val;
-}
+extract($headers);
 $thirds_price = rounder($price);
 //add the price to the variables so that we can update the running total.
-if ($name=='Gareth'){
+if ($name=='2'){
 	$StoG += $thirds_price;
 	$DtoG += $thirds_price;
 }
-elseif ($name=='Sarah'){
+elseif ($name=='3'){
 	$DtoS += $thirds_price;
 	$GtoS += $thirds_price;
 
 }
-elseif ($name=='Doug'){
+elseif ($name=='1'){
 	$GtoD += $thirds_price;
 	$StoD += $thirds_price;
 }
@@ -94,30 +85,29 @@ else{
 // There has to be a more efficient way of doing this next part
 // check which is the larger so we know who ows whom money and thus create a new entry into the table.
 if ($StoG>=$GtoS){
-	$StoG = rounder($StoG-$GtoS);
+	$StoG = $StoG-$GtoS;
 	$GtoS = 0;
 }
 else {
-	$GtoS = rounder($GtoS-$StoG);
+	$GtoS = $GtoS-$StoG;
 	$StoG=0;
 }
 if ($GtoD>=$DtoG){
-	$GtoD = rounder($GtoD-$DtoG);
+	$GtoD = $GtoD-$DtoG;
 	$DtoG = 0;
 }
 else {
-	$DtoG = rounder($DtoG-$GtoD);
+	$DtoG = $DtoG-$GtoD;
 	$GtoD = 0;
 }
 if ($DtoS>=$StoD){
-	$DtoS = rounder($DtoS=$StoD);
+	$DtoS = $DtoS=$StoD;
 	$StoD = 0;
 }
 else {
-	$StoD = rounder($StoD-$DtoS);
+	$StoD = $StoD-$DtoS;
 	$DtoS = 0;
 }
-//insert the new values into the table
 $the_running_total = $conn->prepare("INSERT INTO running_total
 	(sarah_to_gareth, sarah_to_doug, gareth_to_sarah, gareth_to_doug, doug_to_sarah, doug_to_gareth)
 	VALUES (:STG, :STD, :GTS, :GTD, :DTS, :DTG)");
