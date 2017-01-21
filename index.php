@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Receipt Tracker v0.0.2</h1>
+					<h1>Receipt Tracker v0.0.3</h1>
 				</div>
 			</div>
 			<div class="row">
@@ -69,7 +69,7 @@
 							</p>
 							<div class="input-group">
 								<input class="col-md-12 form-control" type="date"
-								       placeholder='<?php echo date("Y-m-d");?>' name="Date" id="Date">
+								       value='<?php echo date("Y-m-d");?>' name="Date" id="Date">
 								<br>
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-info"
