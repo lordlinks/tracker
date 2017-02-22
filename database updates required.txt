@@ -1,0 +1,11 @@
+update the trigger on paid table to
+CREATE TRIGGER `paid_AFTER_UPDATE`
+AFTER UPDATE ON `paid`
+FOR EACH ROW
+  BEGIN
+  UPDATE paid, transaction
+  SET transaction.finialised = 1
+  WHERE idtran IN (SELECT idpaid
+    FROM paid
+    WHERE garethpaid = 1 AND dougpaid = 1 AND paid.sarahpaid = 1);
+  END

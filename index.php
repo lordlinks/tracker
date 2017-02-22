@@ -29,7 +29,6 @@
 								<span class="sr-only">Error:</span>
 								You are not the real Slim Shady
 							</div>
-							<button class="btn btn-info" onclick="bill_payer()">SELECT</button>
 						</div>
 					</div>
 				</div>
@@ -103,6 +102,18 @@
 								<h1>NO I REALLY WANTED TO PAY A BILL!</h1>
 							</div>
 							<div class="panel-body" id="pay">
+								<button class="btn btn-info" onclick="bill_payer()">Show Unpaid</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h1>Show me some stats</h1>
+							</div>
+							<div class="panel-body" id="stats">
 							</div>
 						</div>
 					</div>
