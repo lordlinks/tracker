@@ -1,4 +1,5 @@
 <html>
+<!DOCTYPE html>
 	<?php include "phpcomponents/header.php";?>
 	<?php include "phpcomponents/name_drop.php";?>
 	<?php include "phpcomponents/runningTotal.php";?>
@@ -7,7 +8,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Receipt Tracker v0.0.3</h1>
+					<h1>Receipt Tracker v0.0.4</h1>
 				</div>
 			</div>
 			<div class="row">
@@ -114,6 +115,13 @@
 								<h1>Show me some stats</h1>
 							</div>
 							<div class="panel-body" id="stats">
+								<div class="row">
+									<div class="col-md-4" id="pie_div">
+										<script type="text/javascript">
+											add_pie()
+										</script>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
