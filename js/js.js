@@ -131,7 +131,9 @@ function add_column() {
         var options = {
             'title': 'Amount spent by people (current month)',
             'width': 400,
-            'height': 300
+            'height': 300,
+            'colors': ['#AA5139', '#AA8B39', '#323875', '#29794C'],
+            'is3d': true
         };
 
         // Instantiate and draw our chart, passing in some options.
