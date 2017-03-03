@@ -8,7 +8,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Receipt Tracker v0.0.4</h1>
+					<h1>Receipt Tracker v0.0.5</h1>
 				</div>
 			</div>
 			<div class="row">
@@ -119,6 +119,11 @@
 									<div class="col-md-4" id="pie_div">
 										<script type="text/javascript">
 											add_pie()
+										</script>
+									</div>
+									<div class="col-md-4" id="column_div">
+										<script type="text/javascript">
+											add_column()
 										</script>
 									</div>
 								</div>
