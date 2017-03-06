@@ -8,7 +8,7 @@ function add_transaction() {
         document.getElementById('shady').style.display = 'block';
     } else if(shop == 0){
         document.getElementById('shoppy').style.display = 'block';
-    } else if(typeof (price) == "string") { //more advanced method may be good
+    } else if(typeof (price) != "string") { //more advanced method may be good
         document.getElementById('dollarydoos').style.display = 'block';
     } else if(date == 0){ // something something regex here
         document.getElementById('timeywhimey').style.display = 'block';
@@ -96,7 +96,7 @@ function add_pie() {
         // Set chart options
         var options = {
             'title': 'Amount spent by location (current month)',
-            'width': 400,
+            'width': 600,
             'height': 300
         };
 
@@ -130,9 +130,9 @@ function add_column() {
         // Set chart options
         var options = {
             'title': 'Amount spent by people (current month)',
-            'width': 400,
+            'width': 600,
             'height': 300,
-            'colors': ['#AA5139', '#AA8B39', '#323875', '#29794C'],
+            'colors': ['#29794C', '#AA8B39', '#323875'],
             'is3d': true
         };
 
